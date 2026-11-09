@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>剪映工作室 Pro</title>
+<style>
+:root{color-scheme:dark;--bg:#101117;--panel:#191a22;--line:#30313d;--muted:#989aa9;--purple:#b7a4ff;--text:#eeeef5}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:13px/1.5 "Segoe UI","Microsoft JhengHei",sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer;color:inherit}button:disabled{opacity:.42;cursor:not-allowed}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--purple);outline-offset:2px}.top{height:62px;background:#171820;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:0 20px}.logo{width:30px;height:30px;display:grid;place-items:center;border-radius:9px;color:#171324;background:linear-gradient(135deg,#d0c4ff,#9273ee);font-weight:900;font-size:19px}.brand{font-weight:800;font-size:15px;white-space:nowrap}.pro{font-size:9px;color:#cdbfff;background:#403657;padding:2px 5px;border-radius:4px}.top-spacer{flex:1}.privacy{color:var(--muted);font-size:11px;white-space:nowrap}.btn{border:1px solid #393b4a;background:#272933;border-radius:6px;padding:7px 10px;display:inline-flex;align-items:center;justify-content:center;gap:5px;font-weight:600;white-space:nowrap}.btn:hover:not(:disabled){background:#363846}.btn.primary{background:#b3a0ff;border-color:#b3a0ff;color:#181322}.btn.primary:hover:not(:disabled){background:#cfbfff}.btn.danger{color:#f2a4ae}.editor{display:grid;grid-template-columns:260px minmax(360px,1fr) 300px;min-height:475px}.panel{background:var(--panel);padding:18px;border-right:1px solid var(--line);min-width:0}.inspector{border-right:0;border-left:1px solid var(--line);max-height:calc(100vh - 340px);overflow:auto}.heading{font-weight:700;font-size:14px;margin:0}.sub{color:var(--muted);font-size:11px;margin:5px 0 15px}.upload{width:100%;border:1px dashed #665a86;background:#24212e;border-radius:8px;min-height:88px;color:#d7caff}.upload:hover{background:#302a3f}.upload strong,.upload span{display:block}.upload span{color:var(--muted);font-size:10px;margin-top:3px}.asset-list{display:flex;flex-direction:column;gap:6px;margin-top:12px;max-height:300px;overflow:auto}.asset{background:#242630;border:1px solid #343644;border-radius:6px;padding:8px;display:flex;gap:8px;align-items:center;text-align:left;width:100%;min-width:0}.asset.active{border-color:#a28bff;background:#312b45}.asset-icon{width:33px;height:33px;border-radius:5px;background:#51446f;display:grid;place-items:center;flex:none}.asset-name{white-space:nowrap;text-overflow:ellipsis;overflow:hidden;font-size:11px;flex:1}.small{color:var(--muted);font-size:10px}.stage{min-width:0;padding:16px 20px 10px;display:flex;flex-direction:column}.stage-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-weight:700;font-size:12px}.stage-head span{font-weight:400;color:var(--muted)}.monitor{flex:1;min-height:260px;border:1px solid #292a35;border-radius:8px;background:#0a0b0e;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.canvas-wrap{position:relative;aspect-ratio:16/9;width:min(100%,850px);background:#000}.canvas-wrap canvas{display:block;width:100%;height:100%}.placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse,#292337,#0d0e13 75%);text-align:center}.placeholder strong{font-size:15px}.placeholder p{color:var(--muted);font-size:11px}.placeholder-icon{font-size:25px;color:#c7b9ff;margin-bottom:9px}.transport{height:50px;display:flex;align-items:center;justify-content:center;gap:12px}.transport button{width:34px;height:34px;border:0;border-radius:50%;background:#272833}.transport .play{background:#ecebf2;color:#1a1b22;font-size:15px}.time{font-variant-numeric:tabular-nums;color:#c8c9d2;min-width:126px}.field{display:block;margin:0 0 12px}.field>span{display:block;color:#a8aab8;font-size:11px;margin-bottom:5px}.field input,.field select,.field textarea{width:100%;background:#111219;color:#f0eff5;border:1px solid #393a48;border-radius:5px;padding:7px;min-width:0}.field textarea{min-height:68px;resize:vertical}.field input[type=color]{height:34px;padding:3px}.field input[type=range]{padding:0;accent-color:#b7a4ff}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.action-row{display:flex;gap:6px;margin:8px 0}.action-row .btn{flex:1}.section-label{color:#b4b2c4;font-size:10px;letter-spacing:.08em;font-weight:700;margin:18px 0 9px;border-top:1px solid var(--line);padding-top:12px}.empty{color:var(--muted);text-align:center;font-size:11px;padding:30px 5px}.timeline{height:310px;min-height:310px;border-top:1px solid var(--line);background:#191a21;display:flex;flex-direction:column}.timeline-toolbar{height:51px;display:flex;align-items:center;gap:7px;padding:0 18px;border-bottom:1px solid var(--line);overflow-x:auto}.timeline-toolbar strong{margin-right:8px;white-space:nowrap}.timeline-toolbar .hint{margin-left:auto;color:var(--muted);font-size:10px;white-space:nowrap}.tracks{flex:1;display:grid;grid-template-columns:145px minmax(0,1fr);overflow:hidden}.labels{border-right:1px solid var(--line)}.label{height:57px;border-bottom:1px solid #2b2c36;display:flex;align-items:center;padding:0 16px;color:#b1b1bf;font-size:11px}.label.ruler-label{height:34px;font-size:10px;color:#777a89}.track-area{position:relative;overflow:hidden;user-select:none}.ruler{height:34px;position:relative;border-bottom:1px solid #2b2c36;cursor:pointer}.tick{position:absolute;top:8px;color:#888a98;font-size:10px;font-variant-numeric:tabular-nums}.lane{height:57px;position:relative;border-bottom:1px solid #2b2c36;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(10% - 1px),#262731 calc(10% - 1px),#262731 10%)}.block{position:absolute;top:7px;height:43px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left;border-radius:5px;padding:0 8px;font-size:10px;color:#f2efff}.clip{background:linear-gradient(120deg,#66548b,#424863);border:1px solid #8e7cbd}.block.selected{outline:2px solid #d5c9ff;outline-offset:-2px}.subtitle{background:#475070;border:1px solid #8494c6}.music{background:#315c59;border:1px solid #629a8b;cursor:default}.playhead{position:absolute;top:0;bottom:0;background:#e0d8ff;width:1px;z-index:5;pointer-events:none}.playhead:before{content:"";position:absolute;left:-5px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:8px solid #cbbcff}.statusbar{height:27px;border-top:1px solid #2b2c36;display:flex;justify-content:space-between;align-items:center;padding:0 16px;color:var(--muted);font-size:10px}.dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#83caa5;margin-right:6px}.hidden{display:none!important}.notice{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:20;background:#3a3346;border:1px solid #76618f;border-radius:7px;padding:10px 16px;box-shadow:0 8px 25px #0008;max-width:90vw}.progress{color:#d3c7ff}.shortcuts{line-height:1.8}
+@media(max-width:1050px){.editor{grid-template-columns:220px minmax(300px,1fr)}.inspector{grid-column:1/3;max-height:none;border-left:0;border-top:1px solid var(--line)}.privacy{display:none}.editor{min-height:420px}}
+@media(max-width:650px){.top{padding:0 10px;gap:6px;overflow-x:auto}.editor{display:flex;flex-direction:column}.panel{border-right:0}.asset-list{max-height:150px}.stage{min-height:330px;padding:12px}.monitor{min-height:200px}.timeline{height:290px;min-height:290px}.tracks{grid-template-columns:72px minmax(0,1fr)}.label{padding:0 7px}.timeline-toolbar{padding:0 8px}.timeline-toolbar .hint{display:none}.statusbar span:last-child{display:none}.transport{gap:6px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="logo">✂</div><span class="brand">剪映工作室</span><span class="pro">PRO</span>
+  <div class="top-spacer"></div><span class="privacy">🔒 素材僅在本機處理</span>
+  <button class="btn" id="openProject">開啟專案</button><button class="btn" id="saveProject" disabled>儲存專案</button><button class="btn primary" id="export" disabled>↓ 匯出 WebM</button>
+  <input id="projectInput" type="file" accept=".json,application/json" hidden><input id="relinkInput" type="file" multiple hidden>
+</header>
+<main class="editor">
+  <aside class="panel">
+    <h1 class="heading">媒體素材</h1><p class="sub">新增影片後，選取片段進行剪輯。</p>
+    <input id="videoInput" type="file" accept="video/*" multiple hidden><input id="audioInput" type="file" accept="audio/*" hidden>
+    <button class="upload" id="addVideo"><strong>＋ 匯入影片</strong><span>可同時選擇多個檔案</span></button>
+    <div class="action-row"><button class="btn" id="addAudio">♫ 匯入背景音樂</button><button class="btn" id="removeAudio" disabled>移除音樂</button></div>
+    <div class="small" id="audioName">尚未加入背景音樂</div>
+    <div class="section-label">影片片段</div><div class="asset-list" id="assets"><div class="small">尚未匯入影片</div></div>
+  </aside>
+  <section class="stage">
+    <div class="stage-head">預覽畫面 <span id="previewInfo">等待匯入影片</span></div>
+    <div class="monitor"><div class="canvas-wrap"><canvas id="canvas" width="1280" height="720"></canvas><div class="placeholder" id="placeholder"><div class="placeholder-icon">▣</div><strong>讓你的故事開始播放</strong><p>匯入影片，開始建立你的作品</p></div></div></div>
+    <div class="transport"><span class="time"><span id="current">00:00.0</span> / <span id="total">00:00.0</span></span><button id="back" title="回到開頭" disabled>◀◀</button><button class="play" id="play" title="播放 / 暫停" disabled>▶</button><button id="forward" title="前往結尾" disabled>▶▶</button><span class="small">空白鍵 播放 / 暫停</span></div>
+  </section>
+  <aside class="panel inspector">
+    <h2 class="heading" id="inspectorTitle">片段設定</h2><p class="sub" id="inspectorDesc">選擇片段以調整剪輯與效果。</p>
+    <div id="clipForm" class="hidden">
+      <div class="small" id="clipName"></div>
+      <div class="section-label">裁切 · 原始影片時間</div>
+      <div class="row"><label class="field"><span>起點（秒）</span><input id="clipStart" type="number" min="0" step="0.01"></label><label class="field"><span>終點（秒）</span><input id="clipEnd" type="number" min="0" step="0.01"></label></div>
+      <div class="action-row"><button class="btn" id="moveLeft">← 前移</button><button class="btn" id="moveRight">後移 →</button><button class="btn danger" id="deleteClip">刪除</button></div>
+      <div class="section-label">畫面與轉場</div>
+      <label class="field"><span>濾鏡</span><select id="filter"><option value="none">原始</option><option value="grayscale(1)">黑白</option><option value="sepia(.75)">復古</option><option value="saturate(1.6)">鮮豔</option><option value="contrast(1.25)">高對比</option></select></label>
+      <label class="field"><span>片段淡入淡出（秒，黑場）</span><input id="fade" type="number" min="0" max="3" step="0.1"></label>
+      <label class="field"><span>原始音量 <b id="clipVolumeValue"></b></span><input id="clipVolume" type="range" min="0" max="100"></label>
+    </div>
+    <div id="subtitleForm" class="hidden">
+      <label class="field"><span>字幕內容</span><textarea id="subtitleText" maxlength="300"></textarea></label>
+      <div class="row"><label class="field"><span>開始（專案秒數）</span><input id="subtitleStart" type="number" min="0" step="0.01"></label><label class="field"><span>結束（專案秒數）</span><input id="subtitleEnd" type="number" min="0" step="0.01"></label></div>
+      <div class="row"><label class="field"><span>文字顏色</span><input id="subtitleColor" type="color"></label><label class="field"><span>文字大小</span><input id="subtitleSize" type="number" min="16" max="120" step="1"></label></div>
+      <div class="row"><label class="field"><span>動畫</span><select id="subtitleAnimation"><option value="none">無</option><option value="fade">淡入淡出</option><option value="slide">向上滑入</option></select></label><label class="field"><span>文字背景</span><select id="subtitleBackground"><option value="none">無</option><option value="dark">半透明黑</option></select></label></div>
+      <label class="field"><span>垂直位置 <b id="positionValue"></b></span><input id="subtitlePosition" type="range" min="10" max="95"></label>
+      <button class="btn danger" id="deleteSubtitle">刪除字幕</button>
+    </div>
+    <div id="emptyForm" class="empty">點擊時間軸中的片段或字幕，<br>即可在這裡編輯。</div>
+    <div class="section-label">背景音樂</div>
+    <label class="field"><span>音樂起點（專案秒數）</span><input id="musicStart" type="number" min="0" step="0.1" value="0" disabled></label>
+    <label class="field"><span>音樂音量 <b id="musicVolumeValue">50%</b></span><input id="musicVolume" type="range" min="0" max="100" value="50" disabled></label>
+    <p class="small shortcuts">字幕時間以整個專案為準。專案 JSON 不含素材，重新開啟時需重新選取原始檔案。</p>
+  </aside>
+</main>
+<section class="timeline" aria-label="時間軸">
+  <div class="timeline-toolbar"><strong>時間軸</strong><button class="btn" id="addSubtitle" disabled>＋ 新增字幕</button><button class="btn" id="split" disabled>✂ 分割片段</button><button class="btn" id="setStart" disabled>設為起點</button><button class="btn" id="setEnd" disabled>設為終點</button><span class="hint">點選片段以編輯 · 點選尺規以跳轉</span></div>
+  <div class="tracks"><div class="labels"><div class="label ruler-label">專案時間</div><div class="label">▣ 影片</div><div class="label">T 字幕</div><div class="label">♫ 音樂</div></div><div class="track-area" id="trackArea"><div class="ruler" id="ruler"></div><div class="lane" id="videoLane"></div><div class="lane" id="subtitleLane"></div><div class="lane" id="musicLane"></div><div class="playhead" id="playhead"></div></div></div>
+  <div class="statusbar"><span><span class="dot"></span><span id="status">準備就緒</span></span><span>本機處理 · 即時錄製 WebM · 邊界可能有些微誤差</span></div>
+</section>
+<video id="video" playsinline preload="auto" hidden></video><audio id="audio" preload="auto" hidden></audio>
+<div class="notice hidden" id="notice" role="status"></div>
+<script>
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const video = $('video'), audio = $('audio'), canvas = $('canvas'), ctx = canvas.getContext('2d');
+  const filters = ['none','grayscale(1)','sepia(.75)','saturate(1.6)','contrast(1.25)'];
+  const state = {clips:[], subtitles:[], music:null, selected:null, time:0, playing:false, busy:false, exporting:false, activeId:null};
+  let nextId = 1, toastTimer, audioContext, videoGain, musicGain, destination, pendingProject, loopPending = false;
+  const id = () => nextId++;
+  const toast = message => { $('notice').textContent = message; $('notice').classList.remove('hidden'); clearTimeout(toastTimer); toastTimer = setTimeout(() => $('notice').classList.add('hidden'), 6000); };
+  const fmt = t => { t = Math.round(Math.max(0, Number.isFinite(t) ? t : 0)*10)/10; return String(Math.floor(t / 60)).padStart(2,'0') + ':' + (t % 60).toFixed(1).padStart(4,'0'); };
+  const length = clip => clip.end - clip.start;
+  const duration = () => state.clips.reduce((sum, clip) => sum + length(clip), 0);
+  const offset = index => state.clips.slice(0,index).reduce((sum, clip) => sum + length(clip), 0);
+  const selectedClip = () => state.selected && state.selected.type === 'clip' ? state.clips.find(c => c.id === state.selected.id) : null;
+  const selectedSubtitle = () => state.selected && state.selected.type === 'subtitle' ? state.subtitles.find(s => s.id === state.selected.id) : null;
+  const number = el => el.value.trim() === '' ? NaN : Number(el.value);
+  const round = value => Math.round(value * 1000) / 1000;
+  function locate(time) {
+    let start = 0;
+    for (let i = 0; i < state.clips.length; i++) {
+      const end = start + length(state.clips[i]);
+      if (time < end || i === state.clips.length - 1) return {clip:state.clips[i], index:i, start, local:Math.min(length(state.clips[i]), Math.max(0,time-start))};
+      start = end;
+    }
+    return null;
+  }
+  function setStatus(message) { $('status').textContent = message; }
+  function controls() {
+    const disabled = !state.clips.length || state.busy;
+    ['play','back','forward','addSubtitle','split','setStart','setEnd','saveProject','export'].forEach(name => $(name).disabled = disabled);
+    ['addVideo','addAudio','openProject'].forEach(name => $(name).disabled = state.busy);
+    $('removeAudio').disabled = state.busy || !state.music;
+    $('musicStart').disabled = state.busy || !state.music;
+    $('musicVolume').disabled = state.busy || !state.music;
+    for (const form of [$('clipForm'),$('subtitleForm')]) form.querySelectorAll('input,select,textarea,button').forEach(el => el.disabled = state.busy);
+    $('trackArea').style.pointerEvents = state.busy ? 'none' : '';
+    $('assets').style.pointerEvents = state.busy ? 'none' : '';
+    $('play').textContent = state.playing ? '❚❚' : '▶';
+  }
+  function renderInspector() {
+    const clip = selectedClip(), sub = selectedSubtitle();
+    $('clipForm').classList.toggle('hidden', !clip); $('subtitleForm').classList.toggle('hidden', !sub); $('emptyForm').classList.toggle('hidden', !!clip || !!sub);
+    $('inspectorTitle').textContent = sub ? '字幕設定' : '片段設定';
+    $('inspectorDesc').textContent = sub ? '字幕位置與時間以整個專案為準。' : '選擇片段以調整剪輯與效果。';
+    if (clip) {
+      $('clipName').textContent = clip.name;
+      $('clipStart').value = round(clip.start); $('clipEnd').value = round(clip.end);
+      $('filter').value = clip.filter; $('fade').value = clip.fade; $('clipVolume').value = clip.volume; $('clipVolumeValue').textContent = clip.volume + '%';
+    }
+    if (sub) {
+      $('subtitleText').value = sub.text; $('subtitleStart').value = round(sub.start); $('subtitleEnd').value = round(sub.end);
+      $('subtitleColor').value = sub.color; $('subtitleSize').value = sub.size; $('subtitlePosition').value = sub.position;
+      $('positionValue').textContent = sub.position + '%'; $('subtitleAnimation').value = sub.animation; $('subtitleBackground').value = sub.background;
+    }
+    $('audioName').textContent = state.music ? state.music.name + ' · ' + fmt(state.music.duration) : '尚未加入背景音樂';
+    $('musicStart').value = state.music ? state.music.start : 0;
+    $('musicVolume').value = state.music ? state.music.volume : 50;
+    $('musicVolumeValue').textContent = $('musicVolume').value + '%';
+    controls();
+  }
+  function block(lane, start, end, text, cls, selected, click) {
+    const total = duration();
+    if (!total || end <= 0 || start >= total) return;
+    const el = document.createElement('button');
+    el.className = 'block ' + cls + (selected ? ' selected' : '');
+    el.style.left = Math.max(0,start) / total * 100 + '%';
+    el.style.width = (Math.min(end,total)-Math.max(0,start)) / total * 100 + '%';
+    el.textContent = text; el.title = text;
+    if (click) el.addEventListener('click', event => { event.stopPropagation(); click(); });
+    else el.tabIndex = -1;
+    lane.append(el);
+  }
+  function render() {
+    const total = duration();
+    $('assets').replaceChildren(); $('videoLane').replaceChildren(); $('subtitleLane').replaceChildren(); $('musicLane').replaceChildren(); $('ruler').replaceChildren();
+    if (!state.clips.length) $('assets').innerHTML = '<div class="small">尚未匯入影片</div>';
+    state.clips.forEach((clip,index) => {
+      const isSelected = !!selectedClip() && selectedClip().id === clip.id;
+      const asset = document.createElement('button'); asset.className = 'asset' + (isSelected ? ' active' : '');
+      const icon = document.createElement('span'); icon.className = 'asset-icon'; icon.textContent = '▣';
+      const name = document.createElement('span'); name.className = 'asset-name'; name.textContent = `${index+1}. ${clip.name}`;
+      const meta = document.createElement('span'); meta.className = 'small'; meta.textContent = fmt(length(clip));
+      asset.append(icon,name,meta); asset.addEventListener('click', () => selectClip(clip.id)); $('assets').append(asset);
+      block($('videoLane'),offset(index),offset(index)+length(clip),`${index+1}. ${clip.name}`,'clip',isSelected,() => selectClip(clip.id));
+    });
+    state.subtitles.forEach(sub => block($('subtitleLane'),sub.start,sub.end,sub.text || '（空白字幕）','subtitle',!!selectedSubtitle() && selectedSubtitle().id === sub.id,() => { state.selected={type:'subtitle',id:sub.id}; render(); }));
+    if (state.music) block($('musicLane'),state.music.start,state.music.start+state.music.duration,state.music.name,'music',false,null);
+    if (total) for (let i=0;i<=5;i++) { const tick=document.createElement('span'); tick.className='tick'; tick.style.left=i===5?'calc(100% - 42px)':i*20+'%'; tick.textContent=fmt(total*i/5); $('ruler').append(tick); }
+    $('placeholder').classList.toggle('hidden', !!total);
+    $('previewInfo').textContent = total ? `${canvas.width} × ${canvas.height} · ${state.clips.length} 個片段` : '等待匯入影片';
+    $('total').textContent = fmt(total);
+    state.time = Math.min(state.time,total);
+    updatePosition(); renderInspector();
+  }
+  function updatePosition() {
+    $('current').textContent = fmt(state.time);
+    $('playhead').style.left = (duration() ? state.time / duration() * 100 : 0) + '%';
+    draw();
+  }
+  function draw() {
+    const place = locate(state.time);
+    ctx.fillStyle = '#000'; ctx.fillRect(0,0,canvas.width,canvas.height);
+    if (place && state.activeId === place.clip.id && video.readyState >= 2) {
+      const clip = place.clip;
+      const scale = Math.min(canvas.width/video.videoWidth,canvas.height/video.videoHeight);
+      const w=video.videoWidth*scale, h=video.videoHeight*scale;
+      ctx.save(); ctx.filter=clip.filter; ctx.drawImage(video,(canvas.width-w)/2,(canvas.height-h)/2,w,h); ctx.restore();
+      const fade=Math.min(clip.fade,length(clip)/2);
+      if (fade > 0) {
+        const opacity=1-Math.min(1,place.local/fade,(length(clip)-place.local)/fade);
+        ctx.fillStyle=`rgba(0,0,0,${Math.max(0,opacity)})`; ctx.fillRect(0,0,canvas.width,canvas.height);
+      }
+    }
+    state.subtitles.filter(s => state.time >= s.start && state.time < s.end && s.text.trim()).forEach(sub => {
+      ctx.save();
+      const size=sub.size*canvas.height/720;
+      ctx.font=`bold ${size}px "Microsoft JhengHei", sans-serif`; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.lineJoin='round';
+      const animDuration=Math.min(.4,(sub.end-sub.start)/2);
+      const anim=sub.animation === 'none' ? 1 : Math.min(1,(state.time-sub.start)/animDuration,(sub.end-state.time)/animDuration);
+      ctx.globalAlpha=Math.max(0,anim); ctx.fillStyle=sub.color; ctx.strokeStyle='rgba(0,0,0,.9)'; ctx.lineWidth=Math.max(2,size/9);
+      const lines=[];
+      for (const para of sub.text.split('\n')) { let line=''; for (const char of para) { if (line && ctx.measureText(line+char).width>canvas.width*.88) { lines.push(line); line=''; } line+=char; } lines.push(line); }
+      const lineHeight=size*1.25, y=canvas.height*sub.position/100-(lines.length-1)*lineHeight/2+(sub.animation==='slide'?(1-anim)*size:0);
+      if (sub.background==='dark') { const width=Math.min(canvas.width*.94,Math.max(...lines.map(line=>ctx.measureText(line).width))+size); ctx.fillStyle='rgba(0,0,0,.6)'; ctx.fillRect((canvas.width-width)/2,y-size*.65,width,lines.length*lineHeight); ctx.fillStyle=sub.color; }
+      lines.forEach((line,i) => { ctx.strokeText(line,canvas.width/2,y+i*lineHeight); ctx.fillText(line,canvas.width/2,y+i*lineHeight); });
+      ctx.restore();
+    });
+  }
+  function pause() { state.playing=false; video.pause(); audio.pause(); controls(); }
+  function mediaReady(element, eventName, action) {
+    return new Promise((resolve,reject) => {
+      let timeout;
+      const cleanup=()=>{clearTimeout(timeout);element.removeEventListener(eventName,success);element.removeEventListener('error',fail);};
+      const success=()=>{cleanup();resolve();};
+      const fail=()=>{cleanup();reject(new Error('無法讀取或定位媒體，請確認檔案與格式。'));};
+      element.addEventListener(eventName,success,{once:true}); element.addEventListener('error',fail,{once:true});
+      timeout=setTimeout(()=>{cleanup();reject(new Error('媒體讀取逾時，請確認瀏覽器支援此檔案。'));},15000);
+      try { action(); } catch(error) { cleanup(); reject(error); }
+    });
+  }
+  async function seek(time) {
+    const total=duration(); if (!total) return;
+    state.time=Math.max(0,Math.min(time,total));
+    const place=locate(state.time);
+    if (state.activeId!==place.clip.id) {
+      state.activeId=null;
+      await mediaReady(video,'loadeddata',()=>{video.src=place.clip.url;video.load();});
+      state.activeId=place.clip.id;
+    }
+    const target=Math.min(place.clip.duration,place.clip.start+place.local);
+    if (video.seeking || Math.abs(video.currentTime-target)>.01) await mediaReady(video,'seeked',()=>{video.currentTime=target;});
+    if (videoGain) videoGain.gain.value=place.clip.volume/100;
+    updatePosition();
+  }
+  async function prepareAudio() {
+    if (!audioContext) {
+      const AudioContextClass=window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) throw new Error('此瀏覽器不支援音訊混合。');
+      audioContext=new AudioContextClass();
+      destination=audioContext.createMediaStreamDestination();
+      videoGain=audioContext.createGain(); musicGain=audioContext.createGain();
+      audioContext.createMediaElementSource(video).connect(videoGain);
+      audioContext.createMediaElementSource(audio).connect(musicGain);
+      videoGain.connect(audioContext.destination); videoGain.connect(destination);
+      musicGain.connect(audioContext.destination); musicGain.connect(destination);
+    }
+    await audioContext.resume();
+    if (audioContext.state!=='running') throw new Error('無法啟用音訊。');
+  }
+  async function syncMusic() {
+    const music=state.music;
+    if (!music || state.time < music.start || state.time >= music.start+music.duration) { audio.pause(); return; }
+    const target=state.time-music.start;
+    if (Math.abs(audio.currentTime-target)>.25) audio.currentTime=target;
+    if (musicGain) musicGain.gain.value=music.volume/100;
+    if (state.playing && audio.paused) await audio.play();
+  }
+  async function startPlayback() {
+    if (!state.clips.length) return;
+    await prepareAudio();
+    if (state.time>=duration()) state.time=0;
+    await seek(state.time);
+    state.playing=true; controls();
+    await video.play();
+    await syncMusic();
+  }
+  async function advance() {
+    if (!state.playing || loopPending) return;
+    loopPending=true;
+    try {
+      const activeIndex=state.clips.findIndex(c=>c.id===state.activeId);
+      if (activeIndex<0) throw new Error('播放片段已不存在。');
+      const clip=state.clips[activeIndex];
+      state.time=Math.min(offset(activeIndex)+Math.max(0,video.currentTime-clip.start),offset(activeIndex)+length(clip));
+      updatePosition();
+      if (video.ended || video.currentTime>=clip.end) {
+        if (activeIndex===state.clips.length-1) { state.time=duration(); pause(); updatePosition(); }
+        else { video.pause(); audio.pause(); await seek(offset(activeIndex+1)); if (state.playing) await video.play(); }
+      }
+      if (state.playing) await syncMusic();
+    } catch (error) { pause(); setStatus('播放發生錯誤'); toast(error.message); if (state.exporting && exportFail) exportFail(error); }
+    finally { loopPending=false; }
+  }
+  function frame() { if (state.playing) advance(); requestAnimationFrame(frame); }
+  requestAnimationFrame(frame);
+  async function run(action) {
+    try { await action(); } catch(error) { pause(); toast(error.message); setStatus('操作失敗'); }
+  }
+  async function inspectFile(file, kind) {
+    const url=URL.createObjectURL(file), element=document.createElement(kind);
+    try {
+      element.preload='metadata';
+      await mediaReady(element,'loadedmetadata',()=>{element.src=url;});
+      if (!Number.isFinite(element.duration) || element.duration<=0 || (kind==='video' && (!element.videoWidth || !element.videoHeight))) throw new Error(`無法讀取素材「${file.name}」的有效長度或畫面。`);
+      return {file,url,name:file.name,size:file.size,duration:element.duration,width:element.videoWidth || 0,height:element.videoHeight || 0};
+    } catch(error) { URL.revokeObjectURL(url); throw error; }
+    finally { element.removeAttribute('src'); element.load(); }
+  }
+  function selectClip(clipId) { state.selected={type:'clip',id:clipId}; render(); }
+  async function refreshAfterEdit(time) { pause(); render(); if (state.clips.length) await seek(Math.min(time,duration())); else { state.activeId=null; video.removeAttribute('src'); video.load(); updatePosition(); } }
+  $('addVideo').onclick=()=>$('videoInput').click();
+  $('videoInput').onchange=event=>run(async()=>{
+    const files=[...event.target.files]; event.target.value=''; if (!files.length) return;
+    pause(); const wasEmpty = !state.clips.length; state.busy=true; controls();
+    try {
+      for (const file of files) {
+        try { const media=await inspectFile(file,'video'); state.clips.push({...media,id:id(),start:0,end:media.duration,filter:'none',fade:0,volume:100}); }
+        catch(error) { toast(error.message); }
+      }
+      if (state.clips.length) {
+        if (!state.selected) state.selected={type:'clip',id:state.clips[0].id};
+        if (wasEmpty) { canvas.width=state.clips[0].width; canvas.height=state.clips[0].height; document.querySelector('.canvas-wrap').style.aspectRatio=canvas.width+'/'+canvas.height; }
+        render(); await seek(state.time); setStatus('影片已加入');
+      }
+    } finally { state.busy=false; render(); }
+  });
+  $('addAudio').onclick=()=>$('audioInput').click();
+  $('audioInput').onchange=event=>run(async()=>{
+    const file=event.target.files[0]; event.target.value=''; if (!file) return;
+    pause(); state.busy=true; controls();
+    try {
+      const media=await inspectFile(file,'audio');
+      if (state.music) URL.revokeObjectURL(state.music.url);
+      state.music={...media,start:0,volume:50}; audio.src=media.url; audio.load(); setStatus('背景音樂已加入');
+    } finally { state.busy=false; render(); }
+  });
+  $('removeAudio').onclick=()=>{ pause(); if (state.music) URL.revokeObjectURL(state.music.url); state.music=null; audio.removeAttribute('src'); audio.load(); render(); };
+  $('play').onclick=()=>run(async()=>{ if (state.playing) pause(); else await startPlayback(); });
+  $('back').onclick=()=>run(async()=>{pause();await seek(0);});
+  $('forward').onclick=()=>run(async()=>{pause();await seek(duration());});
+  $('ruler').onclick=event=>run(async()=>{pause();const rect=$('ruler').getBoundingClientRect();await seek((event.clientX-rect.left)/rect.width*duration());});
+  document.addEventListener('keydown',event=>{ if (event.code==='Space' && !['INPUT','TEXTAREA','SELECT','BUTTON'].includes(document.activeElement.tagName) && !state.busy && state.clips.length) {event.preventDefault();$('play').click();} });
+  async function trim(start,end) {
+    const clip=selectedClip(); if (!clip) return;
+    if (!Number.isFinite(start)||!Number.isFinite(end)||start<0||end>clip.duration||end-start<.05) { toast('請輸入有效裁切範圍，片段至少需要 0.05 秒。');renderInspector();return; }
+    clip.start=start;clip.end=end; await refreshAfterEdit(offset(state.clips.indexOf(clip)));
+  }
+  $('clipStart').onchange=()=>run(()=>trim(number($('clipStart')),selectedClip().end));
+  $('clipEnd').onchange=()=>run(()=>trim(selectedClip().start,number($('clipEnd'))));
+  $('setStart').onclick=()=>run(async()=>{const clip=selectedClip(), place=locate(state.time);if (!clip||!place||place.clip.id!==clip.id) {toast('請先選取播放位置所在的片段。');return;} await trim(clip.start+place.local,clip.end);});
+  $('setEnd').onclick=()=>run(async()=>{const clip=selectedClip(), place=locate(state.time);if (!clip||!place||place.clip.id!==clip.id) {toast('請先選取播放位置所在的片段。');return;} await trim(clip.start,clip.start+place.local);});
+  async function move(delta) { const clip=selectedClip();if(!clip)return;const index=state.clips.indexOf(clip),other=index+delta;if(other<0||other>=state.clips.length)return;[state.clips[index],state.clips[other]]=[state.clips[other],state.clips[index]];await refreshAfterEdit(offset(other)); }
+  $('moveLeft').onclick=()=>run(()=>move(-1)); $('moveRight').onclick=()=>run(()=>move(1));
+  $('deleteClip').onclick=()=>run(async()=>{const clip=selectedClip();if(!clip)return;const index=state.clips.indexOf(clip);state.clips.splice(index,1);if(!state.clips.some(c=>c.url===clip.url))URL.revokeObjectURL(clip.url);state.selected=state.clips.length?{type:'clip',id:state.clips[Math.min(index,state.clips.length-1)].id}:null;await refreshAfterEdit(Math.min(state.time,duration()));});
+  $('split').onclick=()=>run(async()=>{const place=locate(state.time);if(!place)return;const at=place.clip.start+place.local;if(at-place.clip.start<.05||place.clip.end-at<.05){toast('請將播放位置移至片段中間再分割。');return;}const second={...place.clip,id:id(),start:at};place.clip.end=at;state.clips.splice(place.index+1,0,second);state.selected={type:'clip',id:second.id};await refreshAfterEdit(state.time);});
+  $('filter').onchange=event=>{const c=selectedClip();if(c){c.filter=event.target.value;draw();}};
+  $('fade').onchange=event=>{const c=selectedClip(),value=number(event.target);if(!c)return;if(!Number.isFinite(value)||value<0||value>3){toast('淡入淡出長度須介於 0 至 3 秒。');renderInspector();return;}c.fade=value;draw();};
+  $('clipVolume').oninput=event=>{const c=selectedClip();if(c){c.volume=Number(event.target.value);$('clipVolumeValue').textContent=c.volume+'%';if(videoGain&&state.activeId===c.id)videoGain.gain.value=c.volume/100;}};
+  $('musicStart').onchange=event=>{const value=number(event.target);if(!state.music)return;if(!Number.isFinite(value)||value<0){toast('音樂起點必須大於或等於 0。');renderInspector();return;}pause();state.music.start=value;render();};
+  $('musicVolume').oninput=event=>{if(state.music){state.music.volume=Number(event.target.value);$('musicVolumeValue').textContent=state.music.volume+'%';if(musicGain)musicGain.gain.value=state.music.volume/100;}};
+  $('addSubtitle').onclick=()=>{const total=duration(),start=Math.min(state.time,Math.max(0,total-.05));const sub={id:id(),text:'輸入字幕內容',start,end:Math.min(start+3,total),color:'#ffffff',size:48,position:85,animation:'none',background:'none'};state.subtitles.push(sub);state.selected={type:'subtitle',id:sub.id};render();$('subtitleText').focus();$('subtitleText').select();};
+  $('subtitleText').oninput=event=>{const sub=selectedSubtitle();if(sub){sub.text=event.target.value;renderTimelineOnly();draw();}};
+  function renderTimelineOnly() { const blocks=$('subtitleLane').querySelectorAll('.subtitle'); const sub=selectedSubtitle(); if(sub){const index=state.subtitles.filter(s=>s.end>0&&s.start<duration()).indexOf(sub);if(blocks[index]){blocks[index].textContent=sub.text||'（空白字幕）';blocks[index].title=sub.text;}} }
+  for (const name of ['subtitleStart','subtitleEnd']) $(name).onchange=()=>{const sub=selectedSubtitle(),start=number($('subtitleStart')),end=number($('subtitleEnd'));if(!sub)return;if(!Number.isFinite(start)||!Number.isFinite(end)||start<0||end>duration()||end-start<.05){toast('字幕時間須在專案範圍內，且至少持續 0.05 秒。');renderInspector();return;}sub.start=start;sub.end=end;render();};
+  $('subtitleColor').oninput=event=>{const s=selectedSubtitle();if(s){s.color=event.target.value;draw();}};
+  $('subtitleSize').onchange=event=>{const s=selectedSubtitle(),value=number(event.target);if(!s)return;if(!Number.isFinite(value)||value<16||value>120){toast('文字大小須介於 16 至 120。');renderInspector();return;}s.size=value;draw();};
+  $('subtitlePosition').oninput=event=>{const s=selectedSubtitle();if(s){s.position=Number(event.target.value);$('positionValue').textContent=s.position+'%';draw();}};
+  $('subtitleAnimation').onchange=event=>{const s=selectedSubtitle();if(s){s.animation=event.target.value;draw();}};
+  $('subtitleBackground').onchange=event=>{const s=selectedSubtitle();if(s){s.background=event.target.value;draw();}};
+  $('deleteSubtitle').onclick=()=>{state.subtitles=state.subtitles.filter(s=>s.id!==state.selected.id);state.selected=null;render();};
+  function download(blob,name) {const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),60000);}
+  $('saveProject').onclick=()=>{
+    const media=c=>({name:c.name,size:c.size,duration:c.duration});
+    const data={version:1,clips:state.clips.map(c=>({...media(c),start:c.start,end:c.end,filter:c.filter,fade:c.fade,volume:c.volume})),subtitles:state.subtitles.map(({id,...s})=>s),music:state.music?{...media(state.music),start:state.music.start,volume:state.music.volume}:null};
+    download(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),'video-project.json');toast('專案已儲存。請保留原始素材，重新開啟時需要重新選取。');
+  };
+  $('openProject').onclick=()=>$('projectInput').click();
+  $('projectInput').onchange=event=>run(async()=>{
+    const file=event.target.files[0];event.target.value='';if(!file)return;
+    let project;try{project=JSON.parse(await file.text());}catch(error){throw new Error('專案檔不是有效的 JSON。');}
+    if(!project || project.version!==1 || !Array.isArray(project.clips) || !project.clips.length || !Array.isArray(project.subtitles))throw new Error('不支援或無效的專案格式。');
+    if(!window.confirm('開啟專案將取代目前的編輯。接著請選取專案所使用的所有影片與音樂原始檔。'))return;
+    pendingProject=project;$('relinkInput').click();
+  });
+  function validMediaRef(x) {return x && typeof x.name==='string' && Number.isSafeInteger(x.size) && x.size>=0 && Number.isFinite(x.duration) && x.duration>0;}
+  function validateProject(p) {
+    const finite=(v,min,max)=>typeof v==='number' && Number.isFinite(v) && v>=min && v<=max;
+    if (!p.clips.every(c=>validMediaRef(c)&&finite(c.start,0,c.duration)&&finite(c.end,0,c.duration)&&c.end-c.start>=.05&&filters.includes(c.filter)&&finite(c.fade,0,3)&&finite(c.volume,0,100))) throw new Error('專案中的影片設定無效。');
+    if (!p.subtitles.every(s=>s && typeof s.text==='string' && s.text.length<=300 && finite(s.start,0,Number.MAX_SAFE_INTEGER) && finite(s.end,0,Number.MAX_SAFE_INTEGER) && s.end-s.start>=.05 && /^#[0-9a-f]{6}$/i.test(s.color) && finite(s.size,16,120) && finite(s.position,10,95) && ['none','fade','slide'].includes(s.animation) && ['none','dark'].includes(s.background))) throw new Error('專案中的字幕設定無效。');
+    if (p.music && (!validMediaRef(p.music)||!finite(p.music.start,0,Number.MAX_SAFE_INTEGER)||!finite(p.music.volume,0,100))) throw new Error('專案中的音樂設定無效。');
+  }
+  $('relinkInput').onchange=event=>run(async()=>{
+    const files=[...event.target.files],project=pendingProject;pendingProject=null;event.target.value='';if(!files.length||!project)return;
+    validateProject(project);
+    const created=[],cache=new Map();
+    state.busy=true;controls();
+    try {
+      const restore=async(ref,kind)=>{
+        const key=kind+'|'+ref.name+'|'+ref.size;
+        if(cache.has(key))return cache.get(key);
+        const matches=files.filter(f=>f.name===ref.name&&f.size===ref.size);
+        if(matches.length!==1)throw new Error(`無法唯一對應素材「${ref.name}」，請重新開啟專案並選取原始檔。`);
+        const media=await inspectFile(matches[0],kind);created.push(media.url);
+        if(Math.abs(media.duration-ref.duration)>.1)throw new Error(`素材「${ref.name}」長度與專案不符。`);
+        cache.set(key,media);return media;
+      };
+      const clips=[];for(const c of project.clips){const media=await restore(c,'video');clips.push({...media,id:id(),start:c.start,end:c.end,filter:c.filter,fade:c.fade,volume:c.volume});}
+      const music=project.music?{...await restore(project.music,'audio'),start:project.music.start,volume:project.music.volume}:null;
+      pause();
+      const previous={clips:state.clips,music:state.music,subtitles:state.subtitles,selected:state.selected,time:state.time,width:canvas.width,height:canvas.height};
+      try {
+        state.clips=clips;state.music=music;state.subtitles=project.subtitles.map(s=>({...s,id:id()}));state.selected={type:'clip',id:clips[0].id};state.time=0;state.activeId=null;
+        canvas.width=clips[0].width;canvas.height=clips[0].height;document.querySelector('.canvas-wrap').style.aspectRatio=canvas.width+'/'+canvas.height;
+        if(music){audio.src=music.url;audio.load();}else{audio.removeAttribute('src');audio.load();}
+        render();await seek(0);
+      } catch(error) {
+        state.clips=previous.clips;state.music=previous.music;state.subtitles=previous.subtitles;state.selected=previous.selected;state.time=previous.time;state.activeId=null;
+        canvas.width=previous.width;canvas.height=previous.height;document.querySelector('.canvas-wrap').style.aspectRatio=canvas.width+'/'+canvas.height;
+        if(previous.music){audio.src=previous.music.url;audio.load();}else{audio.removeAttribute('src');audio.load();}
+        render();
+        if(state.clips.length) {
+          try { await seek(previous.time); } catch(restoreError) { throw new Error(error.message+'；恢復原專案預覽失敗：'+restoreError.message); }
+        }
+        throw error;
+      }
+      const oldUrls=new Set(previous.clips.map(c=>c.url));if(previous.music)oldUrls.add(previous.music.url);oldUrls.forEach(url=>URL.revokeObjectURL(url));
+      setStatus('專案已開啟');toast('專案與素材已還原。');
+    } catch(error){created.forEach(url=>URL.revokeObjectURL(url));throw error;}
+    finally{state.busy=false;render();}
+  });
+  let exportFail;
+  for (const media of [video,audio]) media.addEventListener('error',()=>{
+    if (!state.playing) return;
+    const error=new Error(media===video?'影片播放失敗。':'背景音樂播放失敗。');
+    pause();
+    if (state.exporting && exportFail) exportFail(error);
+    else { setStatus('播放發生錯誤'); toast(error.message); }
+  });
+  $('export').onclick=()=>run(async()=>{
+    if(!window.MediaRecorder||!canvas.captureStream){toast('此瀏覽器不支援 WebM 匯出，請使用最新版 Chrome 或 Edge。');return;}
+    const mime=['video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm'].find(t=>MediaRecorder.isTypeSupported(t));
+    if(!mime){toast('此瀏覽器不支援 WebM 錄製。');return;}
+    pause();state.busy=true;state.exporting=true;controls();setStatus('正在匯出，請保持分頁開啟…');
+    let stream,recorder;
+    try {
+      await prepareAudio();await seek(0);draw();
+      stream=canvas.captureStream(30);destination.stream.getAudioTracks().forEach(track=>stream.addTrack(track));
+      recorder=new MediaRecorder(stream,{mimeType:mime});
+      const chunks=[];
+      const recorded=new Promise((resolve,reject)=>{recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data);};recorder.onerror=e=>reject(e.error||new Error('錄製失敗。'));recorder.onstop=()=>resolve(new Blob(chunks,{type:mime}));});
+      recorder.start();await startPlayback();
+      const finished=new Promise((resolve,reject)=>{exportFail=reject;const check=()=>{if(!state.playing){resolve();return;}setTimeout(check,50);};setTimeout(check,50);});
+      await Promise.race([finished,recorded.then(()=>{throw new Error('錄製意外停止。');})]);
+      if(state.time<duration()-.1)throw new Error('播放提前停止，匯出已取消。');
+      recorder.stop();const blob=await recorded;if(!blob.size)throw new Error('匯出檔案為空。');
+      download(blob,'edited-video.webm');toast('影片已匯出為 WebM。');
+    } finally {
+      exportFail=null;pause();if(recorder&&recorder.state!=='inactive')recorder.stop();
+      if(stream)stream.getVideoTracks().forEach(track=>track.stop());
+      state.busy=false;state.exporting=false;controls();setStatus('準備就緒');
+    }
+  });
+  render();
+})();
+</script>
+</body>
+</html>
